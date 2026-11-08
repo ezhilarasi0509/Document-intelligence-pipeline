@@ -17,7 +17,7 @@ from .schema import ContractExtraction
 from .tracing import init_tracing
 
 init_tracing("docintel-api")
-app = FastAPI(title="Contract Document Intelligence", version="0.1.0",
+app = FastAPI(title="Document Intelligence Pipeline", version="0.1.0",
               description="Messy contract PDF in, schema-validated JSON out.")
 
 
