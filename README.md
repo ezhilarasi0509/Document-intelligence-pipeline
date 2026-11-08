@@ -68,6 +68,19 @@ The free Groq tier allows 8,000 tokens per minute, which forced me to send snipp
 A smarter parser, a per-field retrieval rewrite, and full-page OCR did not move clause F1
 (0.64 to 0.69, within noise). Sending the whole PDF to a multimodal model did (0.87).
 
+### Failure analysis: three real misses
+First miss of each type in the v3 error log, with the lawyers' label, what the model said, and
+whether the labeled text was inside the excerpt sent to the model:
+
+| Clause | Contract | CUAD label (shortened) | Model | Label text in excerpt? | Cause |
+|---|---|---|---|---|---|
+| cap_on_liability | Audible co-branding agreement | "EXCEPT FOR LIABILITIES UNDER SECTION 7.2 [Indemnity], NEITHER PARTY'S AGGREGATE LIABILITY ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT..." | no clause | **No** | Retrieval: a textbook liability cap was never sent |
+| exclusivity | Ambassador Eyewear endorsement agreement | "Nothing in this Agreement shall be construed to prevent KI, Inc. from granting any other licenses..." | no clause | **No** | Retrieval, and the label is a carve-out phrasing, an edge case for any model |
+| non_compete | Audible co-branding agreement | "'ACSI Competitor' means, collectively, such persons and entities as the Parties may agree upon..." | no clause | Yes | Model/definition: the text was sent, but it defines a competitor list instead of saying "shall not compete" |
+
+Two of the three were never in the excerpt, which matches the 33-of-41 diagnosis. The third was
+seen and missed because CUAD counts a competitor definition as a non-compete, a judgment call.
+
 ### Prompt iteration (v3): two different failure modes
 After the diagnosis I rewrote the prompt to match how CUAD's lawyers actually label (wider clause
 definitions; compute an expiration date from "N years from <date>"; normalize renewal to
