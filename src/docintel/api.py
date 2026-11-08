@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import tempfile
 import uuid
 from pathlib import Path
@@ -38,7 +39,7 @@ class ExtractResponse(BaseModel):
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "model": config.GROQ_MODEL}
+    return {"status": "ok", "model": config.GROQ_MODEL, "prompt_version": os.getenv("PROMPT_VERSION", "v2")}
 
 
 @app.post("/extract", response_model=ExtractResponse)
