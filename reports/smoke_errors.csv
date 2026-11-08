@@ -1,0 +1,6 @@
+doc,field,ftype,kind,predicted,gold,doc_failed_validation
+"adma biomanufacturing, llc -  amendment #3 to manufacturing agreement ",governing_law,entity,FP,Delaware,,False
+ambassadoreyeweargroupinc_11_17_1997-ex-10.28-endorsement agreement,termination_for_convenience,clause,FP,True,False,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,expiration_date,date,FN,,1/30/03,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,non_compete,clause,FN,False,True,False
+azulsa_20170303_f-1a_ex-10.3_9943903_ex-10.3_maintenance agreement2,document_name,entity,FPFN,Amendment N° 1 Global Maintenance Agreement,Amendment n° 01   to the Global Maintenance Agreement ref. DS/C-3957/14 Issue 7,False

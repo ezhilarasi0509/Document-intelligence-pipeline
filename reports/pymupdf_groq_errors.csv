@@ -1,0 +1,105 @@
+doc,field,ftype,kind,predicted,gold,doc_failed_validation
+ambassadoreyeweargroupinc_11_17_1997-ex-10.28-endorsement agreement,governing_law,entity,FN,,California,False
+ambassadoreyeweargroupinc_11_17_1997-ex-10.28-endorsement agreement,exclusivity,clause,FN,False,True,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,expiration_date,date,FN,,1/30/03,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,non_compete,clause,FN,False,True,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,cap_on_liability,clause,FN,False,True,False
+azulsa_20170303_f-1a_ex-10.3_9943903_ex-10.3_maintenance agreement2,document_name,entity,FPFN,Amendment N° 1 Global Maintenance Agreement,Amendment n° 01   to the Global Maintenance Agreement ref. DS/C-3957/14 Issue 7,False
+azulsa_20170303_f-1a_ex-10.3_9943903_ex-10.3_maintenance agreement2,effective_date,date,FN,,1/6/16,False
+bioamberinc_04_10_2013-ex-10.34-development agreement (1),expiration_date,date,FN,,4/15/14,False
+bioamberinc_04_10_2013-ex-10.34-development agreement (1),exclusivity,clause,FN,False,True,False
+bioamberinc_04_10_2013-ex-10.34-development agreement (1),cap_on_liability,clause,FN,False,True,False
+bloomenergycorp_20180321_drsa (on s-1)_ex-10_11240356_ex-10_maintenance agreement,governing_law,entity,FN,,New York,False
+bloomenergycorp_20180321_drsa (on s-1)_ex-10_11240356_ex-10_maintenance agreement,cap_on_liability,clause,FN,False,True,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,expiration_date,date,FN,,2/26/00,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,renewal_term,entity,FN,,successive 1 year,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,cap_on_liability,clause,FN,False,True,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,termination_for_convenience,clause,FP,True,False,False
+bolivarminingcorp_05_23_2003-ex-2.1-visp web site building and hosting agreement,renewal_term,entity,FPFN,auto-renews annually unless either party gives written notice at least 90 days prior to expiration,successive 1 year,False
+bolivarminingcorp_05_23_2003-ex-2.1-visp web site building and hosting agreement,termination_for_convenience,clause,FP,True,False,False
+chaparralresourcesinc_03_30_2000-ex-10.66-transportation contract,agreement_date,date,FPFN,2000-01-31,1/3/00,False
+chaparralresourcesinc_03_30_2000-ex-10.66-transportation contract,expiration_date,date,FN,,11/30/04,False
+chaparralresourcesinc_03_30_2000-ex-10.66-transportation contract,renewal_term,entity,FPFN,automatic monthly extensions unless 65‑day notice,successive 12 months,False
+elandiainternationalinc_04_25_2007-ex-10.21-outsourcing agreement,agreement_date,date,FN,,6/16/04,False
+elandiainternationalinc_04_25_2007-ex-10.21-outsourcing agreement,expiration_date,date,FN,,6/16/09,False
+elandiainternationalinc_04_25_2007-ex-10.21-outsourcing agreement,termination_for_convenience,clause,FN,False,True,False
+ferroglobeplc_20150624_f-4a_ex-10.20_9154746_ex-10.20_outsourcing agreement,agreement_date,date,FN,,1/1/09,False
+ferroglobeplc_20150624_f-4a_ex-10.20_9154746_ex-10.20_outsourcing agreement,renewal_term,entity,FN,,successive 1 year,False
+ferroglobeplc_20150624_f-4a_ex-10.20_9154746_ex-10.20_outsourcing agreement,governing_law,entity,FPFN,Madrid,Spain,False
+ferroglobeplc_20150624_f-4a_ex-10.20_9154746_ex-10.20_outsourcing agreement,cap_on_liability,clause,FN,False,True,False
+freecook_20180605_s-1_ex-10.3_11233807_ex-10.3_hosting agreement,expiration_date,date,FN,,5/3/18,False
+freecook_20180605_s-1_ex-10.3_11233807_ex-10.3_hosting agreement,termination_for_convenience,clause,FN,False,True,False
+fusionpharmaceuticalsinc_06_05_2020-ex-10.17-supply agreement - fusion,expiration_date,date,FN,,[]/[]/[],False
+fusionpharmaceuticalsinc_06_05_2020-ex-10.17-supply agreement - fusion,exclusivity,clause,FP,True,False,False
+gainscoinc_01_21_2010-ex-10.41-sponsorship agreement,non_compete,clause,FN,False,True,False
+gainscoinc_01_21_2010-ex-10.41-sponsorship agreement,cap_on_liability,clause,FN,False,True,False
+galacticommtechnologiesinc_11_07_1997-ex-10.46-web hosting agreement,governing_law,entity,FP,Florida,,False
+galacticommtechnologiesinc_11_07_1997-ex-10.46-web hosting agreement,termination_for_convenience,clause,FP,True,False,False
+ideanomicsinc_20160330_10-k_ex-10.26_9512211_ex-10.26_content license agreement,expiration_date,date,FN,,12/21/35,False
+ideanomicsinc_20160330_10-k_ex-10.26_9512211_ex-10.26_content license agreement,governing_law,entity,FN,,New York,False
+ideanomicsinc_20160330_10-k_ex-10.26_9512211_ex-10.26_content license agreement,exclusivity,clause,FP,True,False,False
+ideanomicsinc_20160330_10-k_ex-10.26_9512211_ex-10.26_content license agreement,cap_on_liability,clause,FN,False,True,False
+idreamskytechnologyltd_07_03_2014-ex-10.39-cooperation agreement on mobile game business,agreement_date,date,FN,,1/1/13,False
+idreamskytechnologyltd_07_03_2014-ex-10.39-cooperation agreement on mobile game business,renewal_term,entity,FPFN,"auto-renews for one year, but only once",1 year,False
+idreamskytechnologyltd_07_03_2014-ex-10.39-cooperation agreement on mobile game business,non_compete,clause,FN,False,True,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,effective_date,date,FN,,3/3/03,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,governing_law,entity,FN,,Delaware,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,non_compete,clause,FN,False,True,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,exclusivity,clause,FN,False,True,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,effective_date,date,FN,,5/18/01,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,expiration_date,date,FN,,perpetual,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,non_compete,clause,FN,False,True,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,exclusivity,clause,FN,False,True,False
+integrityfunds_20200121_485bpos_ex-99.e undr contr_11948727_ex-99.e undr contr_service agreement,renewal_term,entity,FPFN,auto-renews for successive annual periods ending on January 18th of each year,successive 1 year,False
+integrityfunds_20200121_485bpos_ex-99.e undr contr_11948727_ex-99.e undr contr_service agreement,termination_for_convenience,clause,FP,True,False,False
+"intersectent,inc_05_11_2020-ex-10.1-supply agreement",expiration_date,date,FN,,1/20/25,False
+"intersectent,inc_05_11_2020-ex-10.1-supply agreement",cap_on_liability,clause,FN,False,True,False
+intriconcorp_03_10_2009-ex-10.22-strategic alliance agreement,expiration_date,date,FN,,10/1/13,False
+intriconcorp_03_10_2009-ex-10.22-strategic alliance agreement,renewal_term,entity,FP,"may be extended subject to satisfactory agreement on ongoing commercial terms, to be agreed two months prior to expiration",,False
+intriconcorp_03_10_2009-ex-10.22-strategic alliance agreement,cap_on_liability,clause,FN,False,True,False
+intriconcorp_03_10_2009-ex-10.22-strategic alliance agreement,termination_for_convenience,clause,FN,False,True,False
+legacyeducationallianceinc_20141110_8-k_ex-10.9_8828866_ex-10.9_endorsement agreement,agreement_date,date,FN,,[]/[]/2013,False
+legacyeducationallianceinc_20141110_8-k_ex-10.9_8828866_ex-10.9_endorsement agreement,effective_date,date,FN,,1/1/13,False
+legacyeducationallianceinc_20141110_8-k_ex-10.9_8828866_ex-10.9_endorsement agreement,renewal_term,entity,FPFN,may be extended upon mutual agreement between the parties,24 months,False
+legacyeducationallianceinc_20141110_8-k_ex-10.9_8828866_ex-10.9_endorsement agreement,non_compete,clause,FN,False,True,False
+lejuholdingsltd_20140121_drs (on f-1)_ex-10.26_8473102_ex-10.26_content license agreement1,governing_law,entity,FN,,People's Republic of China,False
+lifewayfoodsinc_20160316_10-k_ex-10.24_9489766_ex-10.24_endorsement agreement,non_compete,clause,FN,False,True,False
+"mjbiotech,inc_12_06_2018-ex-99.01-joint venture agreement",non_compete,clause,FN,False,True,False
+"mjbiotech,inc_12_06_2018-ex-99.01-joint venture agreement",anti_assignment,clause,FN,False,True,False
+"mjbiotech,inc_12_06_2018-ex-99.01-joint venture agreement",cap_on_liability,clause,FN,False,True,False
+"mjbiotech,inc_12_06_2018-ex-99.01-joint venture agreement",termination_for_convenience,clause,FN,False,True,False
+nakedbrandgroupinc_20150731_pos am (on s-1)_ex-10.75_9196027_ex-10.75_endorsement agreement,parties,entity,FPFN,"['The Naked Brands Group, Inc.', 'Wade Enterprises, LLC']","The Naked Brands Group, Inc (""Naked""); Wade Enterprises, LLC (""Wade Enterprises""); f/s/o Dwayne Wade (""Athlete"" and together with Wade Enterprises (collectively, ""Wade""); Wade Enterprises, Athlete and togetherwith Naked, (“Party” and collectively, the “Parties”)",False
+nakedbrandgroupinc_20150731_pos am (on s-1)_ex-10.75_9196027_ex-10.75_endorsement agreement,expiration_date,date,FN,,6/15/19,False
+nakedbrandgroupinc_20150731_pos am (on s-1)_ex-10.75_9196027_ex-10.75_endorsement agreement,renewal_term,entity,FPFN,may be extended for up to three years by written agreement of both Parties prior to the expiration date,three (3) years,False
+nakedbrandgroupinc_20150731_pos am (on s-1)_ex-10.75_9196027_ex-10.75_endorsement agreement,non_compete,clause,FN,False,True,False
+"ominto,inc_03_29_2004-ex-10-reseller agreement",expiration_date,date,FN,,3/19/05,False
+"ominto,inc_03_29_2004-ex-10-reseller agreement",cap_on_liability,clause,FN,False,True,False
+"optimizedtransportationmanagement,inc_07_26_2000-ex-6.6-distributor agreement",effective_date,date,FP,2000-04-15,,False
+pcquotecominc_19990721_s-1a_ex-10.11_6377149_ex-10.11_co-branding agreement2,agreement_date,date,FPFN,1996-12-05,12/9/96,False
+remarkholdingsinc_20081114_10-q_ex-10.24_2895649_ex-10.24_content license agreement,governing_law,entity,FPFN,Delaware,New York,False
+remarkholdingsinc_20081114_10-q_ex-10.24_2895649_ex-10.24_content license agreement,non_compete,clause,FN,False,True,False
+remarkholdingsinc_20081114_10-q_ex-10.24_2895649_ex-10.24_content license agreement,exclusivity,clause,FN,False,True,False
+remarkholdingsinc_20081114_10-q_ex-10.24_2895649_ex-10.24_content license agreement,cap_on_liability,clause,FN,False,True,False
+scansourceinc_20190822_10-k_ex-10.38_11793958_ex-10.38_distributor agreement2,expiration_date,date,FN,,perpetual,False
+separateaccountiiofagl_05_02_2011-ex-99.(j)(4)-unconditional capital maintenance agreement,expiration_date,date,FN,,perpetual,False
+separateaccountiiofagl_05_02_2011-ex-99.(j)(4)-unconditional capital maintenance agreement,cap_on_liability,clause,FN,False,True,False
+separateaccountiiofagl_05_02_2011-ex-99.(j)(4)-unconditional capital maintenance agreement,termination_for_convenience,clause,FN,False,True,False
+soupmaninc_20150814_8-k_ex-10.1_9230148_ex-10.1_franchise agreement3,non_compete,clause,FP,True,False,False
+stampscominc_20001114_10-q_ex-10.47_2631630_ex-10.47_co-branding agreement,expiration_date,date,FN,,4/27/04,False
+stampscominc_20001114_10-q_ex-10.47_2631630_ex-10.47_co-branding agreement,renewal_term,entity,FPFN,auto-extends for Renewal Period upon notice,successive 2 years,False
+stampscominc_20001114_10-q_ex-10.47_2631630_ex-10.47_co-branding agreement,governing_law,entity,FN,,California,False
+stampscominc_20001114_10-q_ex-10.47_2631630_ex-10.47_co-branding agreement,exclusivity,clause,FN,False,True,False
+stampscominc_20001114_10-q_ex-10.47_2631630_ex-10.47_co-branding agreement,anti_assignment,clause,FN,False,True,False
+tomonlineinc_20060501_20-f_ex-4.46_749700_ex-4.46_co-branding agreement,expiration_date,date,FN,,8/22/10,False
+tomonlineinc_20060501_20-f_ex-4.46_749700_ex-4.46_co-branding agreement,renewal_term,entity,FN,,3 years,False
+tomonlineinc_20060501_20-f_ex-4.46_749700_ex-4.46_co-branding agreement,non_compete,clause,FN,False,True,False
+tomonlineinc_20060501_20-f_ex-4.46_749700_ex-4.46_co-branding agreement,cap_on_liability,clause,FN,False,True,False
+uaghinc_04_14_2004-ex-10.18-maintenance agreement,expiration_date,date,FN,,7/23/08,False
+uaghinc_04_14_2004-ex-10.18-maintenance agreement,renewal_term,entity,FPFN,auto-renews for monthly periods with 30 days written notice,successive 1 month,False
+uaghinc_04_14_2004-ex-10.18-maintenance agreement,anti_assignment,clause,FN,False,True,False
+vgrabcommunicationsinc_20200129_10-k_ex-10.33_11958828_ex-10.33_development agreement,parties,entity,FPFN,"['VGrab Asia Ltd.', 'Developer']","VGrab Asia Ltd. (""VAL""); Mr. Zheng Qing, Mr. Gu Xianwin and Ms. Chen Weijie (""Developer"")",False
+vgrabcommunicationsinc_20200129_10-k_ex-10.33_11958828_ex-10.33_development agreement,expiration_date,date,FN,,09/05/2019; perpetual,False
+vgrabcommunicationsinc_20200129_10-k_ex-10.33_11958828_ex-10.33_development agreement,renewal_term,entity,FP,renewable in accordance with the terms hereof,,False
+vgrabcommunicationsinc_20200129_10-k_ex-10.33_11958828_ex-10.33_development agreement,termination_for_convenience,clause,FN,False,True,False
+webmdhealthcorp_20050908_s-1a_ex-10.7_1027007_ex-10.7_content license agreement,renewal_term,entity,FPFN,may be renewed for one additional year term upon expiration of Initial Term,1 year,False
+webmdhealthcorp_20050908_s-1a_ex-10.7_1027007_ex-10.7_content license agreement,cap_on_liability,clause,FN,False,True,False

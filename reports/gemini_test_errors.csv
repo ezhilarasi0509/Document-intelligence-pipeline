@@ -1,0 +1,4 @@
+doc,field,ftype,kind,predicted,gold,doc_failed_validation
+"adma biomanufacturing, llc -  amendment #3 to manufacturing agreement ",agreement_date,date,FN,,12/22/17,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,expiration_date,date,FN,,1/30/03,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,non_compete,clause,FN,False,True,False

@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "docintel"
+version = "0.1.0"
+description = "Document intelligence pipeline: messy contracts in, validated structured JSON out, scored against CUAD labels."
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "pydantic>=2.7",
+  "openai>=1.40",        # used as a generic client: Groq exposes an OpenAI-compatible API
+  "pymupdf>=1.24",       # fast, tiny PDF text extraction (the "cheap" parser)
+  "duckdb>=1.0",
+  "fastapi>=0.110",
+  "uvicorn>=0.29",
+  "python-multipart>=0.0.9",
+  "python-dotenv>=1.0",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+docling = ["docling>=2.0"]                                   # layout-aware parser (big download, optional)
+gemini = ["google-genai>=1.0"]                               # multimodal arm (optional)
+phoenix = ["arize-phoenix>=8", "openinference-instrumentation-openai>=0.1"]  # local tracing (optional)
+dev = ["pytest>=8"]
+
+[project.scripts]
+docintel = "docintel.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/docintel"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

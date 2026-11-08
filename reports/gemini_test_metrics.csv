@@ -1,0 +1,16 @@
+level,name,ftype,tp,fp,fn,tn,precision,recall,f1,support
+type,clause,clause,6,0,1,8,1.0,0.8571428571428571,0.923076923076923,7
+type,date,date,6,0,2,1,1.0,0.75,0.8571428571428571,8
+type,entity,entity,8,0,0,4,1.0,1.0,1.0,8
+field,anti_assignment,clause,2,0,0,1,1.0,1.0,1.0,2
+field,cap_on_liability,clause,2,0,0,1,1.0,1.0,1.0,2
+field,exclusivity,clause,2,0,0,1,1.0,1.0,1.0,2
+field,non_compete,clause,0,0,1,2,0.0,0.0,0.0,1
+field,termination_for_convenience,clause,0,0,0,3,0.0,0.0,0.0,0
+field,agreement_date,date,2,0,1,0,1.0,0.6666666666666666,0.8,3
+field,effective_date,date,3,0,0,0,1.0,1.0,1.0,3
+field,expiration_date,date,1,0,1,1,1.0,0.5,0.6666666666666666,2
+field,document_name,entity,3,0,0,0,1.0,1.0,1.0,3
+field,governing_law,entity,2,0,0,1,1.0,1.0,1.0,2
+field,parties,entity,3,0,0,0,1.0,1.0,1.0,3
+field,renewal_term,entity,0,0,0,3,0.0,0.0,0.0,0
