@@ -31,6 +31,11 @@ flowchart LR
   H --> J["FastAPI /extract"]
 ```
 
+## Observability
+Every LLM call is traced with Arize Phoenix (prompt, response, tokens, latency). The failed rows below are Groq free-tier rate limits, which the code waits out and retries.
+
+![Phoenix traces](docs/phoenix.png)
+
 ## Data
 `dataset/` holds the 40 contracts used here (a seeded random sample, seed 42, of the 500 CUAD
 contracts that have a PDF), CUAD's `master_clauses.csv` labels, and the sample list.
