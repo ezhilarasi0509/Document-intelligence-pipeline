@@ -23,7 +23,7 @@ def run(parser: str, run_id: str, limit: int | None = None, force: bool = False)
         stems = stems[:limit]
     out_dir = config.PRED_DIR / run_id
     out_dir.mkdir(parents=True, exist_ok=True)
-    model = config.GEMINI_MODEL if parser == "gemini_direct" else config.GROQ_MODEL
+    model = config.GEMINI_MODEL if parser in ("gemini_direct", "gemini_snippets") else config.GROQ_MODEL
 
     results: list[ExtractionResult] = []
     fail_streak = 0
@@ -38,6 +38,11 @@ def run(parser: str, run_id: str, limit: int | None = None, force: bool = False)
             if parser == "gemini_direct":
                 from .gemini_direct import extract_pdf
                 res = extract_pdf(pdf)
+            elif parser == "gemini_snippets":
+                from .gemini_direct import extract_text
+                parsed = parse_pdf("pymupdf", pdf)
+                res = extract_text(parsed.text, s)
+                res.parse_seconds = parsed.seconds
             else:
                 parsed = parse_pdf(parser, pdf)
                 res = extract_from_text(parsed.text, s)

@@ -43,7 +43,7 @@ def extract_pdf(pdf: Path, max_attempts: int = 2) -> ExtractionResult:
                         response_schema=ContractExtraction, temperature=0))
                 break
             except Exception as e:  # noqa: BLE001 - SDK raises several error types
-                if any(t in str(e) for t in ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "INTERNAL", "DEADLINE")):
+                if any(t in str(e) for t in ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "INTERNAL", "DEADLINE", "nodename", "Connection", "timed out", "Temporary failure")):
                     last_err = str(e)[:200]
                     time.sleep(min(60, 8 * 2**i))
                     continue
@@ -63,5 +63,58 @@ def extract_pdf(pdf: Path, max_attempts: int = 2) -> ExtractionResult:
         except ValidationError as e:
             res.error = format_errors(e)
             prompt = f"Your previous JSON failed validation: {res.error}. Return the corrected JSON object."
+    res.seconds = time.perf_counter() - t0
+    return res
+
+
+def extract_text(text: str, filename: str = "", max_attempts: int = 2) -> ExtractionResult:
+    """Control experiment: Gemini sees the SAME snippets Groq saw (text only, no PDF)."""
+    try:
+        from google import genai
+        from google.genai import types
+    except ImportError as e:  # pragma: no cover
+        raise SystemExit("google-genai is not installed. Run: uv sync --extra gemini") from e
+    from .context import build_context
+    from .extract import get_system_prompt as _prompt
+
+    if not config.GEMINI_API_KEY:
+        raise SystemExit("GEMINI_API_KEY is missing in .env")
+    client = genai.Client(api_key=config.GEMINI_API_KEY)
+    context = build_context(text)
+    prompt = f"CONTRACT EXCERPTS:\n<<<\n{context}\n>>>\nReturn the JSON object."
+    res = ExtractionResult(filename=filename, context_chars=len(context))
+    t0 = time.perf_counter()
+    for attempt in range(1, max_attempts + 1):
+        res.attempts = attempt
+        resp, last_err = None, ""
+        for i in range(7):
+            try:
+                resp = client.models.generate_content(
+                    model=config.GEMINI_MODEL, contents=[prompt],
+                    config=types.GenerateContentConfig(
+                        system_instruction=_prompt(), response_mime_type="application/json",
+                        response_schema=ContractExtraction, temperature=0))
+                break
+            except Exception as e:  # noqa: BLE001
+                if any(t in str(e) for t in ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "INTERNAL", "DEADLINE", "nodename", "Connection", "timed out", "Temporary failure")):
+                    last_err = str(e)[:200]
+                    time.sleep(min(60, 8 * 2**i))
+                    continue
+                res.error = f"Gemini error: {str(e)[:200]}"
+                break
+        if resp is None:
+            res.error = res.error or f"Gemini unavailable after retries: {last_err}"
+            break
+        u = getattr(resp, "usage_metadata", None)
+        if u:
+            res.prompt_tokens += getattr(u, "prompt_token_count", 0) or 0
+            res.completion_tokens += getattr(u, "candidates_token_count", 0) or 0
+        try:
+            rec = ContractExtraction.model_validate_json(resp.text or "{}")
+            res.ok, res.record, res.error = True, rec.model_dump(), None
+            break
+        except ValidationError as e:
+            res.error = format_errors(e)
+            prompt += f"\n\nYour previous JSON failed validation: {res.error}. Return the corrected JSON object."
     res.seconds = time.perf_counter() - t0
     return res

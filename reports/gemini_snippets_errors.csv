@@ -1,0 +1,54 @@
+doc,field,ftype,kind,predicted,gold,doc_failed_validation
+"adma biomanufacturing, llc -  amendment #3 to manufacturing agreement ",agreement_date,date,FN,,12/22/17,False
+ambassadoreyeweargroupinc_11_17_1997-ex-10.28-endorsement agreement,governing_law,entity,FN,,California,False
+ambassadoreyeweargroupinc_11_17_1997-ex-10.28-endorsement agreement,exclusivity,clause,FN,False,True,False
+ambassadoreyeweargroupinc_11_17_1997-ex-10.28-endorsement agreement,anti_assignment,clause,FN,False,True,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,expiration_date,date,FN,,1/30/03,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,non_compete,clause,FN,False,True,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,exclusivity,clause,FN,False,True,False
+audibleinc_20001113_10-q_ex-10.32_2599586_ex-10.32_co-branding agreement_ marketing agreement_ investment distribution agreement,cap_on_liability,clause,FN,False,True,False
+azulsa_20170303_f-1a_ex-10.3_9943903_ex-10.3_maintenance agreement2,effective_date,date,FN,,1/6/16,False
+bellringbrandsinc_20190920_s-1_ex-10.12_11817081_ex-10.12_manufacturing agreement3,agreement_date,date,FN,,10/1/18,False
+bioamberinc_04_10_2013-ex-10.34-development agreement (1),expiration_date,date,FN,,4/15/14,False
+bioamberinc_04_10_2013-ex-10.34-development agreement (1),exclusivity,clause,FN,False,True,False
+bioamberinc_04_10_2013-ex-10.34-development agreement (1),cap_on_liability,clause,FN,False,True,False
+bloomenergycorp_20180321_drsa (on s-1)_ex-10_11240356_ex-10_maintenance agreement,governing_law,entity,FN,,New York,False
+bloomenergycorp_20180321_drsa (on s-1)_ex-10_11240356_ex-10_maintenance agreement,cap_on_liability,clause,FN,False,True,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,expiration_date,date,FN,,2/26/00,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,renewal_term,entity,FN,,successive 1 year,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,cap_on_liability,clause,FN,False,True,False
+bncmortgageinc_05_17_1999-ex-10.4-licensing and web site hosting agreement,termination_for_convenience,clause,FP,True,False,False
+bolivarminingcorp_05_23_2003-ex-2.1-visp web site building and hosting agreement,expiration_date,date,FN,,5/12/08,False
+bolivarminingcorp_05_23_2003-ex-2.1-visp web site building and hosting agreement,renewal_term,entity,FPFN,renew automatically each year thereafter,successive 1 year,False
+chaparralresourcesinc_03_30_2000-ex-10.66-transportation contract,agreement_date,date,FPFN,2000-01-31,1/3/00,False
+chaparralresourcesinc_03_30_2000-ex-10.66-transportation contract,expiration_date,date,FN,,11/30/04,False
+chaparralresourcesinc_03_30_2000-ex-10.66-transportation contract,renewal_term,entity,FPFN,"each such extension commencing at the end of the last day of the Initial Term or the relevant anniversary thereof, unless either Party serves written notice of termination on the other Party at least 65 days prior to the end of the Initial Term, or any subsequent extension",successive 12 months,False
+elandiainternationalinc_04_25_2007-ex-10.21-outsourcing agreement,agreement_date,date,FN,,6/16/04,False
+elandiainternationalinc_04_25_2007-ex-10.21-outsourcing agreement,expiration_date,date,FN,,6/16/09,False
+elandiainternationalinc_04_25_2007-ex-10.21-outsourcing agreement,renewal_term,entity,FPFN,The BSP then have the option to renew the agreement for another 5 years,5 years,False
+elandiainternationalinc_04_25_2007-ex-10.21-outsourcing agreement,termination_for_convenience,clause,FN,False,True,False
+ferroglobeplc_20150624_f-4a_ex-10.20_9154746_ex-10.20_outsourcing agreement,renewal_term,entity,FN,,successive 1 year,False
+ferroglobeplc_20150624_f-4a_ex-10.20_9154746_ex-10.20_outsourcing agreement,governing_law,entity,FN,,Spain,False
+ferroglobeplc_20150624_f-4a_ex-10.20_9154746_ex-10.20_outsourcing agreement,cap_on_liability,clause,FN,False,True,False
+freecook_20180605_s-1_ex-10.3_11233807_ex-10.3_hosting agreement,expiration_date,date,FN,,5/3/18,False
+freecook_20180605_s-1_ex-10.3_11233807_ex-10.3_hosting agreement,termination_for_convenience,clause,FN,False,True,False
+fusionpharmaceuticalsinc_06_05_2020-ex-10.17-supply agreement - fusion,expiration_date,date,FN,,[]/[]/[],False
+gainscoinc_01_21_2010-ex-10.41-sponsorship agreement,non_compete,clause,FN,False,True,False
+gainscoinc_01_21_2010-ex-10.41-sponsorship agreement,cap_on_liability,clause,FN,False,True,False
+galacticommtechnologiesinc_11_07_1997-ex-10.46-web hosting agreement,governing_law,entity,FP,Florida,,False
+ideanomicsinc_20160330_10-k_ex-10.26_9512211_ex-10.26_content license agreement,expiration_date,date,FN,,12/21/35,False
+ideanomicsinc_20160330_10-k_ex-10.26_9512211_ex-10.26_content license agreement,governing_law,entity,FN,,New York,False
+ideanomicsinc_20160330_10-k_ex-10.26_9512211_ex-10.26_content license agreement,cap_on_liability,clause,FN,False,True,False
+idreamskytechnologyltd_07_03_2014-ex-10.39-cooperation agreement on mobile game business,agreement_date,date,FN,,1/1/13,False
+idreamskytechnologyltd_07_03_2014-ex-10.39-cooperation agreement on mobile game business,expiration_date,date,FN,,1/1/14,False
+idreamskytechnologyltd_07_03_2014-ex-10.39-cooperation agreement on mobile game business,renewal_term,entity,FPFN,renewed automatically for one year (but can only be renewed once) if neither Party raises objection,1 year,False
+idreamskytechnologyltd_07_03_2014-ex-10.39-cooperation agreement on mobile game business,non_compete,clause,FN,False,True,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,effective_date,date,FN,,3/3/03,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,governing_law,entity,FN,,Delaware,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,non_compete,clause,FN,False,True,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,exclusivity,clause,FN,False,True,False
+igenebiotechnologyinc_05_13_2003-ex-1-joint venture agreement,anti_assignment,clause,FN,False,True,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,effective_date,date,FN,,5/18/01,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,expiration_date,date,FN,,perpetual,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,non_compete,clause,FN,False,True,False
+impcotechnologiesinc_04_15_2003-ex-10.65-joint venture agreement,exclusivity,clause,FN,False,True,False

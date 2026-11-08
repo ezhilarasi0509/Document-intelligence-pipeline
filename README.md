@@ -68,6 +68,23 @@ The free Groq tier allows 8,000 tokens per minute, which forced me to send snipp
 A smarter parser, a per-field retrieval rewrite, and full-page OCR did not move clause F1
 (0.64 to 0.69, within noise). Sending the whole PDF to a multimodal model did (0.87).
 
+### Control experiment: is it the model or the context?
+Gemini and Groq are different models, so "whole document beats snippets" could just mean "Gemini beats
+gpt-oss". To separate the two, I ran Gemini on exactly the snippets Groq saw (same parser, same
+excerpts, same prompt). Same 20 documents for every row (limited by Gemini's free daily quota):
+
+| Setup | Model | Input | Clause precision / recall | Clause F1 |
+|---|---|---|---|---|
+| Groq, per-field retrieval (v2) | gpt-oss-20b | snippets | 0.83 / 0.53 | 0.65 |
+| Gemini on the same snippets | Gemini 3.6 Flash | snippets | 0.94 / 0.45 | 0.61 |
+| Gemini, whole PDF | Gemini 3.6 Flash | whole document | 0.94 / 0.82 | **0.87** |
+
+A stronger model on the same snippets did not help (0.61 vs 0.65, within noise). The same model given
+the whole document raised clause recall from 0.45 to 0.82. **The bottleneck is context, not the
+model.** Per-field F1, snippets to whole document: cap on liability 0.36 to 0.88, exclusivity 0.00 to
+0.89, non-compete 0.29 to 0.67. Caveat: 20 documents and 38 clauses, so the exact numbers are noisy,
+but the gap (about 0.25 F1) is far larger than the noise threshold.
+
 ### Failure analysis: three real misses
 First miss of each type in the v3 error log, with the lawyers' label, what the model said, and
 whether the labeled text was inside the excerpt sent to the model:
@@ -121,7 +138,7 @@ term is still low (0.38 at best). CUAD often labels a computed end date or a nor
 as "successive 1 year"; the v3 prompt fixed part of this.
 
 ## Limitations
-- Gemini and Groq are different models, so "whole document" is mixed with "stronger model". The 33-of-41 diagnosis points to context as the main cause, but I did not isolate it.
+- The model-versus-context control (Gemini on Groq's snippets) ran on 20 of the 40 documents because of Gemini's free daily quota, so it is strong but small-sample evidence.
 - 40 contracts and small per-field counts (11 - 40 positives). Differences under about 0.10 F1 are noise.
 - CUAD labels are broader than my prompt definitions (for example, a waiver of consequential damages counts as a liability cap) and sometimes noisy.
 - Free tiers shaped the design: Groq 8,000 tokens/minute, Gemini 20 requests/day.

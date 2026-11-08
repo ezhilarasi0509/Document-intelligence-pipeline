@@ -16,7 +16,7 @@ def main(argv: list[str] | None = None) -> None:
     sub.add_parser("inspect-labels", help="verify label columns and show label statistics")
 
     r = sub.add_parser("run", help="parse + extract all sampled contracts")
-    r.add_argument("--parser", choices=["pymupdf", "docling", "gemini_direct"], required=True)
+    r.add_argument("--parser", choices=["pymupdf", "docling", "gemini_direct", "gemini_snippets"], required=True)
     r.add_argument("--run-id", required=True)
     r.add_argument("--limit", type=int)
     r.add_argument("--force", action="store_true")
