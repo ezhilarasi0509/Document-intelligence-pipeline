@@ -85,6 +85,19 @@ model.** Per-field F1, snippets to whole document: cap on liability 0.36 to 0.88
 0.89, non-compete 0.29 to 0.67. Caveat: 20 documents and 38 clauses, so the exact numbers are noisy,
 but the gap (about 0.25 F1) is far larger than the noise threshold.
 
+### Statistical confidence
+I resampled the documents 5,000 times (paired, so every setup sees the same resampled documents) to
+get 95% confidence intervals on clause F1 (`src/docintel/bootstrap.py`):
+
+| Comparison (clause F1) | Documents | Difference | 95% CI | Reading |
+|---|---|---|---|---|
+| Gemini whole PDF minus Groq snippets (v2) | 40 | +0.22 | +0.15 to +0.29 | reliable gain |
+| Gemini on snippets minus Groq snippets (model effect, same input) | 20 | -0.04 | -0.14 to +0.05 | no detectable model effect |
+| Gemini whole PDF minus Groq snippets | 20 | +0.23 | +0.15 to +0.32 | reliable gain |
+
+A gain is reliable when its whole interval is above zero. The model-effect interval includes zero, so a
+small model difference cannot be ruled out, but it is far smaller than the effect of seeing the whole document.
+
 ### Failure analysis: three real misses
 First miss of each type in the v3 error log, with the lawyers' label, what the model said, and
 whether the labeled text was inside the excerpt sent to the model:
