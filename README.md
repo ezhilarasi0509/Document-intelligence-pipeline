@@ -71,32 +71,31 @@ A smarter parser, a per-field retrieval rewrite, and full-page OCR did not move 
 ### Control experiment: is it the model or the context?
 Gemini and Groq are different models, so "whole document beats snippets" could just mean "Gemini beats
 gpt-oss". To separate the two, I ran Gemini on exactly the snippets Groq saw (same parser, same
-excerpts, same prompt). Same 20 documents for every row (limited by Gemini's free daily quota):
+excerpts, same prompt). Same 40 documents for every row:
 
 | Setup | Model | Input | Clause precision / recall | Clause F1 |
 |---|---|---|---|---|
-| Groq, per-field retrieval (v2) | gpt-oss-20b | snippets | 0.83 / 0.53 | 0.65 |
-| Gemini on the same snippets | Gemini 3.6 Flash | snippets | 0.94 / 0.45 | 0.61 |
-| Gemini, whole PDF | Gemini 3.6 Flash | whole document | 0.94 / 0.82 | **0.87** |
+| Groq, per-field retrieval (v2) | gpt-oss-20b | snippets | 0.88 / 0.51 | 0.65 |
+| Gemini on the same snippets | Gemini 3.6 Flash | snippets | 0.93 / 0.50 | 0.65 |
+| Gemini, whole PDF | Gemini 3.6 Flash | whole document | 0.93 / 0.81 | **0.87** |
 
-A stronger model on the same snippets did not help (0.61 vs 0.65, within noise). The same model given
-the whole document raised clause recall from 0.45 to 0.82. **The bottleneck is context, not the
-model.** Per-field F1, snippets to whole document: cap on liability 0.36 to 0.88, exclusivity 0.00 to
-0.89, non-compete 0.29 to 0.67. Caveat: 20 documents and 38 clauses, so the exact numbers are noisy,
-but the gap (about 0.25 F1) is far larger than the noise threshold.
+The two models score the same on the same snippets (0.65 vs 0.65). The same model given the whole
+document jumps to 0.87 (recall 0.50 to 0.81). **The bottleneck is context, not the model.** Per-field F1,
+Gemini on snippets vs whole document: cap on liability 0.40 to 0.82, exclusivity 0.53 to 0.91,
+non-compete 0.14 to 0.70, governing law 0.83 to 0.99.
 
 ### Statistical confidence
-I resampled the documents 5,000 times (paired, so every setup sees the same resampled documents) to
+I resampled the 40 documents 5,000 times (paired, so every setup sees the same resampled documents) to
 get 95% confidence intervals on clause F1 (`src/docintel/bootstrap.py`):
 
-| Comparison (clause F1) | Documents | Difference | 95% CI | Reading |
-|---|---|---|---|---|
-| Gemini whole PDF minus Groq snippets (v2) | 40 | +0.22 | +0.15 to +0.29 | reliable gain |
-| Gemini on snippets minus Groq snippets (model effect, same input) | 20 | -0.04 | -0.14 to +0.05 | no detectable model effect |
-| Gemini whole PDF minus Groq snippets | 20 | +0.23 | +0.15 to +0.32 | reliable gain |
+| Comparison (clause F1) | Difference | 95% CI | Reading |
+|---|---|---|---|
+| Gemini whole PDF minus Groq snippets (v2) | +0.22 | +0.15 to +0.29 | reliable gain |
+| Gemini on snippets minus Groq snippets (model effect, same input) | +0.00 | -0.05 to +0.05 | no detectable model effect |
 
-A gain is reliable when its whole interval is above zero. The model-effect interval includes zero, so a
-small model difference cannot be ruled out, but it is far smaller than the effect of seeing the whole document.
+A gain is reliable when its whole interval is above zero. The model-effect interval is centered on zero
+and only about 0.05 wide on each side, so a model difference larger than roughly 0.05 F1 is unlikely,
+while the effect of seeing the whole document is about four times that size.
 
 ### Failure analysis: three real misses
 First miss of each type in the v3 error log, with the lawyers' label, what the model said, and
@@ -151,7 +150,6 @@ term is still low (0.38 at best). CUAD often labels a computed end date or a nor
 as "successive 1 year"; the v3 prompt fixed part of this.
 
 ## Limitations
-- The model-versus-context control (Gemini on Groq's snippets) ran on 20 of the 40 documents because of Gemini's free daily quota, so it is strong but small-sample evidence.
 - 40 contracts and small per-field counts (11 - 40 positives). Differences under about 0.10 F1 are noise.
 - CUAD labels are broader than my prompt definitions (for example, a waiver of consequential damages counts as a liability cap) and sometimes noisy.
 - Free tiers shaped the design: Groq 8,000 tokens/minute, Gemini 20 requests/day.
