@@ -156,6 +156,82 @@ as "successive 1 year"; the v3 prompt fixed part of this.
 - The v3 prompt was run on Groq only. The Gemini row uses the original prompt, so prompt gains and model gains are not compared like for like.
 - The deployed API uses the snippet approach with Groq and is a demo, not a production service.
 
+## What is stored in DuckDB
+Every run is saved to one local file, `data/docintel.duckdb` (not committed; rebuilt by running the pipeline).
+It holds 5 tables, so any result can be queried with plain SQL:
+
+| Table | Rows | What it holds | Main columns |
+|---|---|---|---|
+| `runs` | 8 | one row per experiment | run_id, parser, model, n_docs, ok_docs, retry_docs, parse_seconds, llm_seconds, prompt_tokens, completion_tokens, est_cost_usd |
+| `extractions` | 285 | one row per contract per run, with the full JSON record | run_id, filename, ok, attempts, error, seconds, ungrounded, record |
+| `clause_flags` | 1,425 | the 5 clause yes/no answers per contract per run (285 x 5) | run_id, filename, field, present, quote |
+| `metrics` | 120 | precision, recall and F1 per field and per type (8 runs x 15 rows) | run_id, level, name, ftype, tp, fp, fn, tn, precision, recall, f1, support |
+| `api_extractions` | 2 | contracts uploaded to the local API | id, filename, created_at, ok, record, error |
+
+### `runs`: every experiment
+`SELECT run_id, parser, model, n_docs, ok_docs, round(est_cost_usd, 4) AS est_cost FROM runs ORDER BY created_at;`
+
+| run_id | parser | model | n_docs | ok_docs | est_cost (USD, hypothetical) |
+|---|---|---|---|---|---|
+| smoke | pymupdf | openai/gpt-oss-20b | 5 | 5 | 0.0032 |
+| pymupdf_groq | pymupdf | openai/gpt-oss-20b | 40 | 40 | 0.0235 |
+| pymupdf_groq_v2 | pymupdf | openai/gpt-oss-20b | 40 | 40 | 0.0228 |
+| docling_groq | docling | openai/gpt-oss-20b | 40 | 40 | 0.0217 |
+| gemini_full | gemini_direct | gemini-3.6-flash | 40 | 40 | 0.5620 |
+| docling_ocr_groq | docling | openai/gpt-oss-20b | 40 | 40 | 0.0212 |
+| pymupdf_groq_v3 | pymupdf | openai/gpt-oss-20b | 40 | 40 | 0.0224 |
+| gemini_snippets | gemini_snippets | gemini-3.6-flash | 40 | 40 | 0.2856 |
+
+Costs are what the run would cost at paid prices; everything here ran on free tiers ($0). The Gemini price is
+not verified against Google's page and excludes "thinking" tokens, so treat it as a floor.
+
+### `metrics`: accuracy per field (run `gemini_full`, whole PDF)
+`SELECT name, ftype, precision, recall, f1, support FROM metrics WHERE run_id = 'gemini_full' AND level = 'field' ORDER BY f1 DESC;`
+
+| field | type | precision | recall | F1 | support |
+|---|---|---|---|---|---|
+| document_name | entity | 1.00 | 1.00 | 1.00 | 40 |
+| governing_law | entity | 0.97 | 1.00 | 0.99 | 33 |
+| anti_assignment | clause | 1.00 | 0.93 | 0.96 | 28 |
+| effective_date | date | 1.00 | 0.93 | 0.96 | 29 |
+| parties | entity | 0.95 | 0.95 | 0.95 | 39 |
+| exclusivity | clause | 0.91 | 0.91 | 0.91 | 11 |
+| agreement_date | date | 0.97 | 0.83 | 0.89 | 35 |
+| cap_on_liability | clause | 1.00 | 0.70 | 0.82 | 20 |
+| termination_for_convenience | clause | 0.79 | 0.85 | 0.81 | 13 |
+| non_compete | clause | 0.88 | 0.58 | 0.70 | 12 |
+| expiration_date | date | 1.00 | 0.24 | 0.39 | 29 |
+| renewal_term | entity | 0.18 | 0.25 | 0.21 | 16 |
+
+### `clause_flags`: how often the model found each clause (40 contracts)
+`SELECT field, round(avg(present::INT), 2) AS share_of_contracts FROM clause_flags WHERE run_id = 'gemini_full' GROUP BY 1 ORDER BY 2 DESC;`
+
+| clause | share of contracts |
+|---|---|
+| anti_assignment | 0.65 |
+| cap_on_liability | 0.35 |
+| termination_for_convenience | 0.35 |
+| exclusivity | 0.28 |
+| non_compete | 0.20 |
+
+### `extractions`: sample of extracted records
+`SELECT filename, json_extract_string(record, '$.governing_law') AS law, json_extract_string(record, '$.agreement_date') AS signed FROM extractions WHERE run_id = 'gemini_full' AND ok;`
+
+| contract (shortened) | governing law | agreement date |
+|---|---|---|
+| adma biomanufacturing, llc | NULL | NULL |
+| ambassadoreyeweargroupinc_11_17_1997 | State of California | 1995-08-24 |
+| audibleinc_20001113 | State of Washington | 2000-01-30 |
+| azulsa_20170303 | State of New York | 2016-01-06 |
+| bellringbrandsinc_20190920 | NULL | NULL |
+| bioamberinc_04_10_2013 | State of Minnesota | 2010-04-15 |
+| bloomenergycorp_20180321 | State of New York | 2012-04-13 |
+| bncmortgageinc_05_17_1999 | State of California | 1999-02-26 |
+| bolivarminingcorp_05_23_2003 | state of New York | 2003-05-12 |
+| chaparralresourcesinc_03_30_2000 | Republic of Kazakhstan | 2000-01-31 |
+
+`NULL` means the model found no value in that contract.
+
 ## Run it
 ```bash
 brew install uv
